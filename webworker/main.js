@@ -24,7 +24,7 @@ buttonTwo.onclick = (e) => {
 
 
 // the worker
-let worker = new Worker('/worker.js')
+let worker = new Worker('worker.js')
 
 worker.onmessage = (e) => {
     resultTwo.innerText = e.data
