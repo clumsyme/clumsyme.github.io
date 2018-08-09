@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            #main {
+                display: flex;
+                height: 100vh;
+            }
+
+            .demo {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .demo:first-child {
+                background-color: #f5f5f5;
+            }
+
+            button {
+                margin: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div class="demo">
+                <h1>No Worker</h1>
+                <input type="number" id="input-one"/>
+                <button id="button-one">计算</button>
+                <h1 id="result-one"></h1>
+            </div>
+            <div class="demo">
+                <h1>With Worker</h1>
+                <input type="number" id="input-two"/>
+                <button id="button-two">计算</button>
+                <h1 id="result-two"></h1>
+            </div>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>
