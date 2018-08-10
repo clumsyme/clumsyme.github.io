@@ -1,44 +1,112 @@
 <html>
-    <head>
-        <style>
-            #main {
-                display: flex;
-                height: 100vh;
-            }
 
-            .demo {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
 
-            .demo:first-child {
-                background-color: #f5f5f5;
-            }
+        #main {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
 
-            button {
-                margin: 20px;
-            }
+        .demo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-        </style>
-    </head>
-    <body>
-        <div id="main">
-            <div class="demo">
-                <h1>No Worker</h1>
-                <input type="number" id="input-one"/>
-                <button id="button-one">计算</button>
-                <h1 id="result-one"></h1>
-            </div>
-            <div class="demo">
-                <h1>With Worker</h1>
-                <input type="number" id="input-two"/>
-                <button id="button-two">计算</button>
-                <h1 id="result-two"></h1>
-            </div>
+        .demo.left {
+            background-color: #000;
+            color: #fff;
+        }
+
+        button {
+            margin: 20px;
+        }
+
+        .ball {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 100px;
+        }
+
+        h1 {
+            position: relative;
+            top: 0;
+            transition: all 4s;
+        }
+
+        h1.calculating {
+            top: -200px;
+        }
+
+        .demo.left .ball {
+            background: #fff;
+            animation: leftswing 2s infinite ease-in-out;
+        }
+
+        .demo.right .ball {
+            background: #000;
+            animation: rightswing 2s infinite ease-in-out;
+        }
+
+        @keyframes leftswing {
+            0% {
+                transform: none;
+            }
+            50% {
+
+                transform: translateX(calc(50vw));
+            }
+            100% {
+                transform: none;
+            }
+        }
+
+        @keyframes rightswing {
+            0% {
+                transform: translateX(calc(-50vw));
+            }
+            50% {
+                transform: none;
+            }
+            100% {
+                transform: translateX(calc(-50vw));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="demo left">
+            <div class="ball"></div>
+            <h1 class="title">No Worker</h1>
+            <input type="number" id="input-one" />
+            <button id="button-one">计算</button>
+            <h1 id="result-one"></h1>
         </div>
-        <script src="main.js"></script>
-    </body>
+        <div class="demo right">
+            <div class="ball"></div>
+            <h1 class="title">With Worker</h1>
+            <input type="number" id="input-two" />
+            <button id="button-two">计算</button>
+            <h1 id="result-two"></h1>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
 </html>
